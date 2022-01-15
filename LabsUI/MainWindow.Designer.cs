@@ -36,6 +36,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Lab_1_2_Page = new System.Windows.Forms.TabPage();
             this.findRootsButton = new System.Windows.Forms.Button();
@@ -50,9 +53,25 @@
             this.UserImputLabel = new System.Windows.Forms.Label();
             this.functionChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Lab_3_Page = new System.Windows.Forms.TabPage();
+            this.aBound2 = new System.Windows.Forms.TextBox();
+            this.aBound1 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.findRootButtonLab3 = new System.Windows.Forms.Button();
+            this.lab3drawGraph = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.epsilonLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lab3epsilon = new System.Windows.Forms.TextBox();
+            this.bBound2 = new System.Windows.Forms.TextBox();
+            this.bBound1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lab3Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.Lab_1_2_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.functionChart)).BeginInit();
+            this.Lab_3_Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lab3Chart)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -206,12 +225,176 @@
             // 
             // Lab_3_Page
             // 
-            this.Lab_3_Page.Location = new System.Drawing.Point(4, 25);
+            this.Lab_3_Page.Controls.Add(this.aBound2);
+            this.Lab_3_Page.Controls.Add(this.aBound1);
+            this.Lab_3_Page.Controls.Add(this.label10);
+            this.Lab_3_Page.Controls.Add(this.findRootButtonLab3);
+            this.Lab_3_Page.Controls.Add(this.lab3drawGraph);
+            this.Lab_3_Page.Controls.Add(this.label5);
+            this.Lab_3_Page.Controls.Add(this.label6);
+            this.Lab_3_Page.Controls.Add(this.epsilonLabel);
+            this.Lab_3_Page.Controls.Add(this.label8);
+            this.Lab_3_Page.Controls.Add(this.lab3epsilon);
+            this.Lab_3_Page.Controls.Add(this.bBound2);
+            this.Lab_3_Page.Controls.Add(this.bBound1);
+            this.Lab_3_Page.Controls.Add(this.label9);
+            this.Lab_3_Page.Controls.Add(this.lab3Chart);
+            this.Lab_3_Page.Location = new System.Drawing.Point(4, 22);
             this.Lab_3_Page.Name = "Lab_3_Page";
-            this.Lab_3_Page.Size = new System.Drawing.Size(1144, 619);
+            this.Lab_3_Page.Size = new System.Drawing.Size(1144, 622);
             this.Lab_3_Page.TabIndex = 0;
             this.Lab_3_Page.Text = "Lab 3 page";
             this.Lab_3_Page.UseVisualStyleBackColor = true;
+            // 
+            // aBound2
+            // 
+            this.aBound2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.aBound2.Location = new System.Drawing.Point(188, 187);
+            this.aBound2.Name = "aBound2";
+            this.aBound2.Size = new System.Drawing.Size(100, 35);
+            this.aBound2.TabIndex = 24;
+            this.aBound2.Text = "-3pi";
+            this.aBound2.TextChanged += new System.EventHandler(this.aBound2_TextChanged);
+            // 
+            // aBound1
+            // 
+            this.aBound1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.aBound1.Location = new System.Drawing.Point(188, 146);
+            this.aBound1.Name = "aBound1";
+            this.aBound1.Size = new System.Drawing.Size(100, 35);
+            this.aBound1.TabIndex = 23;
+            this.aBound1.Text = "-3pi";
+            this.aBound1.TextChanged += new System.EventHandler(this.aBound1_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label10.Location = new System.Drawing.Point(41, 321);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(225, 26);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "2*x1+cos(cos(x2)) = 2";
+            // 
+            // findRootButtonLab3
+            // 
+            this.findRootButtonLab3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.findRootButtonLab3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.findRootButtonLab3.Location = new System.Drawing.Point(46, 365);
+            this.findRootButtonLab3.Name = "findRootButtonLab3";
+            this.findRootButtonLab3.Size = new System.Drawing.Size(159, 43);
+            this.findRootButtonLab3.TabIndex = 21;
+            this.findRootButtonLab3.Text = "Find Roots";
+            this.findRootButtonLab3.UseVisualStyleBackColor = true;
+            this.findRootButtonLab3.Click += new System.EventHandler(this.findRootButtonLab3_Click);
+            // 
+            // lab3drawGraph
+            // 
+            this.lab3drawGraph.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lab3drawGraph.Location = new System.Drawing.Point(257, 365);
+            this.lab3drawGraph.Name = "lab3drawGraph";
+            this.lab3drawGraph.Size = new System.Drawing.Size(159, 43);
+            this.lab3drawGraph.TabIndex = 20;
+            this.lab3drawGraph.Text = "Draw Graph";
+            this.lab3drawGraph.UseVisualStyleBackColor = true;
+            this.lab3drawGraph.Click += new System.EventHandler(this.lab3drawGraph_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label5.Location = new System.Drawing.Point(41, 295);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(247, 26);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "sin (sin(x1+1)) - x2 = 1.2";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label6.Location = new System.Drawing.Point(41, 187);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(121, 26);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "X2 interval:";
+            // 
+            // epsilonLabel
+            // 
+            this.epsilonLabel.AutoSize = true;
+            this.epsilonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.epsilonLabel.Location = new System.Drawing.Point(41, 228);
+            this.epsilonLabel.Name = "epsilonLabel";
+            this.epsilonLabel.Size = new System.Drawing.Size(87, 26);
+            this.epsilonLabel.TabIndex = 17;
+            this.epsilonLabel.Text = "epsilon:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label8.Location = new System.Drawing.Point(41, 146);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 26);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "X1 interval:";
+            // 
+            // lab3epsilon
+            // 
+            this.lab3epsilon.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.lab3epsilon.Location = new System.Drawing.Point(134, 228);
+            this.lab3epsilon.Name = "lab3epsilon";
+            this.lab3epsilon.Size = new System.Drawing.Size(100, 35);
+            this.lab3epsilon.TabIndex = 15;
+            this.lab3epsilon.TextChanged += new System.EventHandler(this.lab3epsilon_TextChanged);
+            // 
+            // bBound2
+            // 
+            this.bBound2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.bBound2.Location = new System.Drawing.Point(316, 187);
+            this.bBound2.Name = "bBound2";
+            this.bBound2.Size = new System.Drawing.Size(100, 35);
+            this.bBound2.TabIndex = 14;
+            this.bBound2.Text = "3pi";
+            this.bBound2.TextChanged += new System.EventHandler(this.bBound2_TextChanged);
+            // 
+            // bBound1
+            // 
+            this.bBound1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.bBound1.Location = new System.Drawing.Point(316, 146);
+            this.bBound1.Name = "bBound1";
+            this.bBound1.Size = new System.Drawing.Size(100, 35);
+            this.bBound1.TabIndex = 13;
+            this.bBound1.Text = "3pi";
+            this.bBound1.TextChanged += new System.EventHandler(this.bBound1_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
+            this.label9.Location = new System.Drawing.Point(39, 74);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(322, 39);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "User imput params:";
+            // 
+            // lab3Chart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.lab3Chart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.lab3Chart.Legends.Add(legend2);
+            this.lab3Chart.Location = new System.Drawing.Point(457, 38);
+            this.lab3Chart.Name = "lab3Chart";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.lab3Chart.Series.Add(series2);
+            this.lab3Chart.Size = new System.Drawing.Size(649, 546);
+            this.lab3Chart.TabIndex = 11;
+            this.lab3Chart.Text = "chart1";
             // 
             // MainWindow
             // 
@@ -226,12 +409,14 @@
             this.Lab_1_2_Page.ResumeLayout(false);
             this.Lab_1_2_Page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.functionChart)).EndInit();
+            this.Lab_3_Page.ResumeLayout(false);
+            this.Lab_3_Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lab3Chart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         private System.Windows.Forms.TabPage Lab_1_2_Page;
-        private System.Windows.Forms.TabPage Lab_3_Page;
 
         #endregion
 
@@ -246,5 +431,20 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button drawGraphButton;
         private System.Windows.Forms.Button findRootsButton;
+        private System.Windows.Forms.TabPage Lab_3_Page;
+        private System.Windows.Forms.Button findRootButtonLab3;
+        private System.Windows.Forms.Button lab3drawGraph;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox bBound2;
+        private System.Windows.Forms.TextBox bBound1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataVisualization.Charting.Chart lab3Chart;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label epsilonLabel;
+        private System.Windows.Forms.TextBox lab3epsilon;
+        private System.Windows.Forms.TextBox aBound2;
+        private System.Windows.Forms.TextBox aBound1;
     }
 }
