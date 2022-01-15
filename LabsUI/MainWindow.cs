@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using NumericalMethodImplementation_lab1_2 = lab1_2.NumericalMethodImplementation;
 using NumericalMethodImplementation_lab3 = lab3.NumericalMethodImplementation;
+using NumericalMethodImplementation_lab7 = lab7.NumericalMethodImplementation;
 
 namespace LabsUI
 {
@@ -23,15 +24,18 @@ namespace LabsUI
         
         private NumericalMethodImplementation_lab1_2 _numericalMethodImplementationLab1_2;
         private NumericalMethodImplementation_lab3 _numericalMethodImplementationLab3;
+        private NumericalMethodImplementation_lab7 _numericalMethodImplementationLab7;
         GridDataView _gridDataView;
         public MainWindow()
         {
             InitializeComponent();
             findRootsButton.Enabled = false;
             findRootButtonLab3.Enabled = false;
+            calcIntegralButton.Enabled = false;
 
             _numericalMethodImplementationLab1_2 = new NumericalMethodImplementation_lab1_2();
             _numericalMethodImplementationLab3 = new NumericalMethodImplementation_lab3();
+            _numericalMethodImplementationLab7 = new NumericalMethodImplementation_lab7();
             
             #region OnTextFieldsInit
             if(FillNumericTextBoxSuccessful(aBoundTextValue))
@@ -54,6 +58,13 @@ namespace LabsUI
                 _numericalMethodImplementationLab3.ABound2 = Tools.ParseDoubleWithPi(aBound2.Text);
             if(FillNumericTextBoxSuccessful(bBound2))
                 _numericalMethodImplementationLab3.BBound2 = Tools.ParseDoubleWithPi(bBound2.Text);
+            
+            if(FillNumericTextBoxSuccessful(hLab7))
+                _numericalMethodImplementationLab7.H = Tools.ParseDoubleWithPi(hLab7.Text);
+            if(FillNumericTextBoxSuccessful(aBoundLab7))
+                _numericalMethodImplementationLab7.ABound = Tools.ParseDoubleWithPi(aBoundLab7.Text);
+            if(FillNumericTextBoxSuccessful(bBoundLab7))
+                _numericalMethodImplementationLab7.BBound = Tools.ParseDoubleWithPi(bBoundLab7.Text);
             #endregion
         }
 
@@ -226,6 +237,81 @@ namespace LabsUI
                 _gridDataView.table.Rows.Add(row);
             }
             
+            _gridDataView.Show();
+        }
+
+        private void aBoundLab7_TextChanged(object sender, EventArgs e)
+        {
+            if (FillNumericTextBoxSuccessful(aBoundLab7))
+                _numericalMethodImplementationLab7.ABound = Tools.ParseDoubleWithPi(aBoundLab7.Text);
+        }
+        
+        private void bBoundLab7_TextChanged(object sender, EventArgs e)
+        {
+            if(FillNumericTextBoxSuccessful(bBoundLab7))
+                _numericalMethodImplementationLab7.BBound = Tools.ParseDoubleWithPi(bBoundLab7.Text);
+        }
+        
+        private void hLab7_TextChanged(object sender, EventArgs e)
+        {
+            if(FillNumericTextBoxSuccessful(hLab7))
+                _numericalMethodImplementationLab7.H = Tools.ParseDoubleWithPi(hLab7.Text);
+        }
+
+        private void drawGraphButtonLab7_Click(object sender, EventArgs e)
+        {
+           
+                chartLab7.Series[0] = new Series
+                {
+                    ChartType = SeriesChartType.Line
+                };
+                var defaultChartAreas = functionChart.ChartAreas[0];
+                defaultChartAreas.AxisX.Minimum = _numericalMethodImplementationLab7.ABound;
+                defaultChartAreas.AxisX.Maximum = _numericalMethodImplementationLab7.BBound;
+                defaultChartAreas.AxisY.Minimum = _numericalMethodImplementationLab7.ABound;
+                defaultChartAreas.AxisY.Maximum = _numericalMethodImplementationLab7.BBound;
+
+                functionChart.Series[0].Color = Color.Chocolate;
+            
+                var seriesValues = _numericalMethodImplementationLab7.CalculateSeries();
+                foreach (var point in seriesValues)
+                {
+                    chartLab7.Series[0].Points.AddXY(point.Item1, point.Item2);   
+                }
+
+                calcIntegralButton.Enabled = true;
+        }
+
+        private void calcIntegralButton_Click(object sender, EventArgs e)
+        {
+            findRootsButton.Enabled = false;
+            _gridDataView = new GridDataView();
+            _gridDataView.table.Columns[0].Width = 200;
+            _gridDataView.table.Columns[0].HeaderText = "Точное решение";
+            
+            _gridDataView.table.Columns[1].Width = 200;
+            _gridDataView.table.Columns[1].HeaderText = "Результат решения \nметодом прямоугольников";
+            
+            _gridDataView.table.Columns[2].Width = 200;
+            _gridDataView.table.Columns[2].HeaderText = "Результат решения \nметодом трапеций";
+            
+            _gridDataView.table.Columns.Add("Simpson", "Результат решения \nметодом симпсона");
+            _gridDataView.table.Columns[3].Width = 200;
+
+            var a = _numericalMethodImplementationLab7.ABound;
+            var b = _numericalMethodImplementationLab7.BBound;
+            var h = _numericalMethodImplementationLab7.H;
+            var result1 = _numericalMethodImplementationLab7.FInt();
+            var result2 = _numericalMethodImplementationLab7.RectanglesMethod(a, b, h);
+            var result3 = _numericalMethodImplementationLab7.TrapezeMethod(a, b, h);
+            var result4 = _numericalMethodImplementationLab7.SimpsonMethod(a, b, h);
+            var row = (DataGridViewRow)_gridDataView.table.Rows[0].Clone();
+            Debug.Assert(row != null, nameof(row) + " != null");
+            row.Cells[0].Value = $"{result1:F15}";
+            row.Cells[1].Value = $"{result2:F15}";
+            row.Cells[2].Value = $"{result3:F15}";
+            row.Cells[3].Value = $"{result4:F15}";
+            _gridDataView.table.Rows.Add(row);
             _gridDataView.Show();
         }
     }

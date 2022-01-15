@@ -39,6 +39,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Lab_1_2_Page = new System.Windows.Forms.TabPage();
             this.findRootsButton = new System.Windows.Forms.Button();
@@ -67,17 +70,32 @@
             this.bBound1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lab3Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lab7Page = new System.Windows.Forms.TabPage();
+            this.calcIntegralButton = new System.Windows.Forms.Button();
+            this.drawGraphButtonLab7 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.hLab7 = new System.Windows.Forms.TextBox();
+            this.bBoundLab7 = new System.Windows.Forms.TextBox();
+            this.aBoundLab7 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.chartLab7 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.Lab_1_2_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.functionChart)).BeginInit();
             this.Lab_3_Page.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lab3Chart)).BeginInit();
+            this.lab7Page.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLab7)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.Lab_1_2_Page);
             this.tabControl1.Controls.Add(this.Lab_3_Page);
+            this.tabControl1.Controls.Add(this.lab7Page);
             this.tabControl1.Location = new System.Drawing.Point(8, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -396,6 +414,145 @@
             this.lab3Chart.TabIndex = 11;
             this.lab3Chart.Text = "chart1";
             // 
+            // lab7Page
+            // 
+            this.lab7Page.Controls.Add(this.calcIntegralButton);
+            this.lab7Page.Controls.Add(this.drawGraphButtonLab7);
+            this.lab7Page.Controls.Add(this.label7);
+            this.lab7Page.Controls.Add(this.label11);
+            this.lab7Page.Controls.Add(this.label12);
+            this.lab7Page.Controls.Add(this.label13);
+            this.lab7Page.Controls.Add(this.hLab7);
+            this.lab7Page.Controls.Add(this.bBoundLab7);
+            this.lab7Page.Controls.Add(this.aBoundLab7);
+            this.lab7Page.Controls.Add(this.label14);
+            this.lab7Page.Controls.Add(this.chartLab7);
+            this.lab7Page.Location = new System.Drawing.Point(4, 22);
+            this.lab7Page.Name = "lab7Page";
+            this.lab7Page.Size = new System.Drawing.Size(1144, 622);
+            this.lab7Page.TabIndex = 1;
+            this.lab7Page.Text = "Lab 7 page";
+            this.lab7Page.UseVisualStyleBackColor = true;
+            // 
+            // calcIntegralButton
+            // 
+            this.calcIntegralButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.calcIntegralButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.calcIntegralButton.Location = new System.Drawing.Point(46, 365);
+            this.calcIntegralButton.Name = "calcIntegralButton";
+            this.calcIntegralButton.Size = new System.Drawing.Size(159, 43);
+            this.calcIntegralButton.TabIndex = 21;
+            this.calcIntegralButton.Text = "Calc integral";
+            this.calcIntegralButton.UseVisualStyleBackColor = true;
+            this.calcIntegralButton.Click += new System.EventHandler(this.calcIntegralButton_Click);
+            // 
+            // drawGraphButtonLab7
+            // 
+            this.drawGraphButtonLab7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.drawGraphButtonLab7.Location = new System.Drawing.Point(257, 365);
+            this.drawGraphButtonLab7.Name = "drawGraphButtonLab7";
+            this.drawGraphButtonLab7.Size = new System.Drawing.Size(159, 43);
+            this.drawGraphButtonLab7.TabIndex = 20;
+            this.drawGraphButtonLab7.Text = "Draw Graph";
+            this.drawGraphButtonLab7.UseVisualStyleBackColor = true;
+            this.drawGraphButtonLab7.Click += new System.EventHandler(this.drawGraphButtonLab7_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label7.Location = new System.Drawing.Point(41, 295);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 26);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "F: e^x + 1";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label11.Location = new System.Drawing.Point(41, 187);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(30, 26);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "b:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label12.Location = new System.Drawing.Point(41, 228);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(30, 26);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "h:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label13.Location = new System.Drawing.Point(41, 146);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(30, 26);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "a:";
+            // 
+            // hLab7
+            // 
+            this.hLab7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.hLab7.Location = new System.Drawing.Point(134, 228);
+            this.hLab7.Name = "hLab7";
+            this.hLab7.Size = new System.Drawing.Size(100, 35);
+            this.hLab7.TabIndex = 15;
+            this.hLab7.TextChanged += new System.EventHandler(this.hLab7_TextChanged);
+            // 
+            // bBoundLab7
+            // 
+            this.bBoundLab7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.bBoundLab7.Location = new System.Drawing.Point(134, 187);
+            this.bBoundLab7.Name = "bBoundLab7";
+            this.bBoundLab7.Size = new System.Drawing.Size(100, 35);
+            this.bBoundLab7.TabIndex = 14;
+            this.bBoundLab7.Text = "1";
+            this.bBoundLab7.TextChanged += new System.EventHandler(this.bBoundLab7_TextChanged);
+            // 
+            // aBoundLab7
+            // 
+            this.aBoundLab7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.aBoundLab7.Location = new System.Drawing.Point(134, 146);
+            this.aBoundLab7.Name = "aBoundLab7";
+            this.aBoundLab7.Size = new System.Drawing.Size(100, 35);
+            this.aBoundLab7.TabIndex = 13;
+            this.aBoundLab7.Text = "0";
+            this.aBoundLab7.TextChanged += new System.EventHandler(this.aBoundLab7_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
+            this.label14.Location = new System.Drawing.Point(39, 74);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(322, 39);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "User imput params:";
+            // 
+            // chartLab7
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chartLab7.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartLab7.Legends.Add(legend3);
+            this.chartLab7.Location = new System.Drawing.Point(457, 38);
+            this.chartLab7.Name = "chartLab7";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartLab7.Series.Add(series3);
+            this.chartLab7.Size = new System.Drawing.Size(649, 546);
+            this.chartLab7.TabIndex = 11;
+            this.chartLab7.Text = "chart1";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,6 +569,9 @@
             this.Lab_3_Page.ResumeLayout(false);
             this.Lab_3_Page.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lab3Chart)).EndInit();
+            this.lab7Page.ResumeLayout(false);
+            this.lab7Page.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLab7)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -446,5 +606,17 @@
         private System.Windows.Forms.TextBox lab3epsilon;
         private System.Windows.Forms.TextBox aBound2;
         private System.Windows.Forms.TextBox aBound1;
+        private System.Windows.Forms.TabPage lab7Page;
+        private System.Windows.Forms.Button calcIntegralButton;
+        private System.Windows.Forms.Button drawGraphButtonLab7;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox hLab7;
+        private System.Windows.Forms.TextBox bBoundLab7;
+        private System.Windows.Forms.TextBox aBoundLab7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartLab7;
     }
 }
