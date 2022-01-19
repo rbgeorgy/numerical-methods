@@ -304,12 +304,14 @@ namespace LabsUI
             var result1 = _numericalMethodImplementationLab7.FInt();
             var result2 = _numericalMethodImplementationLab7.RectanglesMethod(a, b, h);
             var result3 = _numericalMethodImplementationLab7.TrapezeMethod(a, b, h);
+            var result3Reminder = _numericalMethodImplementationLab7.CalculateTheRemainderTermOfTheQuadratureFormula(a,b,h);
+            
             var result4 = _numericalMethodImplementationLab7.SimpsonMethod(a, b, h);
             var row = (DataGridViewRow)_gridDataView.table.Rows[0].Clone();
             Debug.Assert(row != null, nameof(row) + " != null");
             row.Cells[0].Value = $"{result1:F15}";
             row.Cells[1].Value = $"{result2:F15}";
-            row.Cells[2].Value = $"{result3:F15}";
+            row.Cells[2].Value = $"{result3:F15} +-\n {result3Reminder:F15}";
             row.Cells[3].Value = $"{result4:F15}";
             _gridDataView.table.Rows.Add(row);
             _gridDataView.Show();

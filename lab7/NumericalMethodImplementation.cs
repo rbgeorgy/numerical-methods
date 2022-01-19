@@ -61,7 +61,6 @@ namespace lab7
             {
                 sum += F(a + i * h);
             }
-
             return sum*h;
         }
         
@@ -110,6 +109,12 @@ namespace lab7
             var n = Math.Ceiling((b - a) / h);
             h = (b - a) / n;
             return (int) n;
+        }
+
+        public double CalculateTheRemainderTermOfTheQuadratureFormula(double a, double b, double h)
+        {
+            const double maxOfSecondDerivative = 2.718281828459045;
+            return -1 * (b - a) * h * h * maxOfSecondDerivative / 12;
         }
     }
 }
